@@ -1,0 +1,2 @@
+faster-whisper>=1.0.0
+# ffmpeg must be installed separately and available on PATH

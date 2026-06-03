@@ -1,0 +1,435 @@
+{
+    "run_id": "RUN_2026_05_01_B934",
+    "source_pdf_original_name": "M1.AG.000089.20220913.20260501.pdf",
+    "source_pdf_internal_name": "RUN_2026_05_01_B934.pdf",
+    "source_pdf_hash": "0022ff1b2baf544f20a4eaa2ce69ff30f95aab3c5f99f3f193d8cd28fe23a1d0",
+    "created_at": "2026-05-01T08:08:05.734044",
+    "status": "segmentation_complete",
+    "page_count": 68,
+    "quarantine_flag": false,
+    "completed_stages": [
+        "SPLIT",
+        "DETECT",
+        "LAYOUT",
+        "EXTRACT",
+        "CLASSIFY",
+        "SEGMENT"
+    ],
+    "page_ids": [
+        "RUN_2026_05_01_B934_P0001",
+        "RUN_2026_05_01_B934_P0002",
+        "RUN_2026_05_01_B934_P0003",
+        "RUN_2026_05_01_B934_P0004",
+        "RUN_2026_05_01_B934_P0005",
+        "RUN_2026_05_01_B934_P0006",
+        "RUN_2026_05_01_B934_P0007",
+        "RUN_2026_05_01_B934_P0008",
+        "RUN_2026_05_01_B934_P0009",
+        "RUN_2026_05_01_B934_P0010",
+        "RUN_2026_05_01_B934_P0011",
+        "RUN_2026_05_01_B934_P0012",
+        "RUN_2026_05_01_B934_P0013",
+        "RUN_2026_05_01_B934_P0014",
+        "RUN_2026_05_01_B934_P0015",
+        "RUN_2026_05_01_B934_P0016",
+        "RUN_2026_05_01_B934_P0017",
+        "RUN_2026_05_01_B934_P0018",
+        "RUN_2026_05_01_B934_P0019",
+        "RUN_2026_05_01_B934_P0020",
+        "RUN_2026_05_01_B934_P0021",
+        "RUN_2026_05_01_B934_P0022",
+        "RUN_2026_05_01_B934_P0023",
+        "RUN_2026_05_01_B934_P0024",
+        "RUN_2026_05_01_B934_P0025",
+        "RUN_2026_05_01_B934_P0026",
+        "RUN_2026_05_01_B934_P0027",
+        "RUN_2026_05_01_B934_P0028",
+        "RUN_2026_05_01_B934_P0029",
+        "RUN_2026_05_01_B934_P0030",
+        "RUN_2026_05_01_B934_P0031",
+        "RUN_2026_05_01_B934_P0032",
+        "RUN_2026_05_01_B934_P0033",
+        "RUN_2026_05_01_B934_P0034",
+        "RUN_2026_05_01_B934_P0035",
+        "RUN_2026_05_01_B934_P0036",
+        "RUN_2026_05_01_B934_P0037",
+        "RUN_2026_05_01_B934_P0038",
+        "RUN_2026_05_01_B934_P0039",
+        "RUN_2026_05_01_B934_P0040",
+        "RUN_2026_05_01_B934_P0041",
+        "RUN_2026_05_01_B934_P0042",
+        "RUN_2026_05_01_B934_P0043",
+        "RUN_2026_05_01_B934_P0044",
+        "RUN_2026_05_01_B934_P0045",
+        "RUN_2026_05_01_B934_P0046",
+        "RUN_2026_05_01_B934_P0047",
+        "RUN_2026_05_01_B934_P0048",
+        "RUN_2026_05_01_B934_P0049",
+        "RUN_2026_05_01_B934_P0050",
+        "RUN_2026_05_01_B934_P0051",
+        "RUN_2026_05_01_B934_P0052",
+        "RUN_2026_05_01_B934_P0053",
+        "RUN_2026_05_01_B934_P0054",
+        "RUN_2026_05_01_B934_P0055",
+        "RUN_2026_05_01_B934_P0056",
+        "RUN_2026_05_01_B934_P0057",
+        "RUN_2026_05_01_B934_P0058",
+        "RUN_2026_05_01_B934_P0059",
+        "RUN_2026_05_01_B934_P0060",
+        "RUN_2026_05_01_B934_P0061",
+        "RUN_2026_05_01_B934_P0062",
+        "RUN_2026_05_01_B934_P0063",
+        "RUN_2026_05_01_B934_P0064",
+        "RUN_2026_05_01_B934_P0065",
+        "RUN_2026_05_01_B934_P0066",
+        "RUN_2026_05_01_B934_P0067",
+        "RUN_2026_05_01_B934_P0068"
+    ],
+    "last_stage": "SEGMENT",
+    "proposed_segments": [
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0001"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0001",
+            "boundary_reason": "DOCUMENT_START"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0002"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0002",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0003",
+                "RUN_2026_05_01_B934_P0004",
+                "RUN_2026_05_01_B934_P0005",
+                "RUN_2026_05_01_B934_P0006",
+                "RUN_2026_05_01_B934_P0007",
+                "RUN_2026_05_01_B934_P0008",
+                "RUN_2026_05_01_B934_P0009",
+                "RUN_2026_05_01_B934_P0010",
+                "RUN_2026_05_01_B934_P0011",
+                "RUN_2026_05_01_B934_P0012",
+                "RUN_2026_05_01_B934_P0013",
+                "RUN_2026_05_01_B934_P0014",
+                "RUN_2026_05_01_B934_P0015",
+                "RUN_2026_05_01_B934_P0016",
+                "RUN_2026_05_01_B934_P0017",
+                "RUN_2026_05_01_B934_P0018",
+                "RUN_2026_05_01_B934_P0019"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0003",
+            "boundary_reason": "DOCUMENT_START"
+        },
+        {
+            "type": "mode_2",
+            "pages": [
+                "RUN_2026_05_01_B934_P0020",
+                "RUN_2026_05_01_B934_P0021"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0020",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0022",
+                "RUN_2026_05_01_B934_P0023",
+                "RUN_2026_05_01_B934_P0024",
+                "RUN_2026_05_01_B934_P0025",
+                "RUN_2026_05_01_B934_P0026",
+                "RUN_2026_05_01_B934_P0027",
+                "RUN_2026_05_01_B934_P0028",
+                "RUN_2026_05_01_B934_P0029",
+                "RUN_2026_05_01_B934_P0030",
+                "RUN_2026_05_01_B934_P0031",
+                "RUN_2026_05_01_B934_P0032",
+                "RUN_2026_05_01_B934_P0033",
+                "RUN_2026_05_01_B934_P0034",
+                "RUN_2026_05_01_B934_P0035",
+                "RUN_2026_05_01_B934_P0036",
+                "RUN_2026_05_01_B934_P0037",
+                "RUN_2026_05_01_B934_P0038",
+                "RUN_2026_05_01_B934_P0039",
+                "RUN_2026_05_01_B934_P0040"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0022",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0041",
+                "RUN_2026_05_01_B934_P0042",
+                "RUN_2026_05_01_B934_P0043"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0041",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0044",
+                "RUN_2026_05_01_B934_P0045",
+                "RUN_2026_05_01_B934_P0046",
+                "RUN_2026_05_01_B934_P0047",
+                "RUN_2026_05_01_B934_P0048",
+                "RUN_2026_05_01_B934_P0049"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0044",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0050",
+                "RUN_2026_05_01_B934_P0051",
+                "RUN_2026_05_01_B934_P0052",
+                "RUN_2026_05_01_B934_P0053"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0050",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0054",
+                "RUN_2026_05_01_B934_P0055",
+                "RUN_2026_05_01_B934_P0056",
+                "RUN_2026_05_01_B934_P0057",
+                "RUN_2026_05_01_B934_P0058"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0054",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_2",
+            "pages": [
+                "RUN_2026_05_01_B934_P0059",
+                "RUN_2026_05_01_B934_P0060"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0059",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0061"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0061",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0062",
+                "RUN_2026_05_01_B934_P0063",
+                "RUN_2026_05_01_B934_P0064",
+                "RUN_2026_05_01_B934_P0065",
+                "RUN_2026_05_01_B934_P0066",
+                "RUN_2026_05_01_B934_P0067",
+                "RUN_2026_05_01_B934_P0068"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0062",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE"
+        }
+    ],
+    "segments": [
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0001"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0001",
+            "boundary_reason": "DOCUMENT_START",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0000",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0000_unknown.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0002"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0002",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0001",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0001_mode_1.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0003",
+                "RUN_2026_05_01_B934_P0004",
+                "RUN_2026_05_01_B934_P0005",
+                "RUN_2026_05_01_B934_P0006",
+                "RUN_2026_05_01_B934_P0007",
+                "RUN_2026_05_01_B934_P0008",
+                "RUN_2026_05_01_B934_P0009",
+                "RUN_2026_05_01_B934_P0010",
+                "RUN_2026_05_01_B934_P0011",
+                "RUN_2026_05_01_B934_P0012",
+                "RUN_2026_05_01_B934_P0013",
+                "RUN_2026_05_01_B934_P0014",
+                "RUN_2026_05_01_B934_P0015",
+                "RUN_2026_05_01_B934_P0016",
+                "RUN_2026_05_01_B934_P0017",
+                "RUN_2026_05_01_B934_P0018",
+                "RUN_2026_05_01_B934_P0019"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0003",
+            "boundary_reason": "DOCUMENT_START",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0002",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0002_mode_1.pdf"
+        },
+        {
+            "type": "mode_2",
+            "pages": [
+                "RUN_2026_05_01_B934_P0020",
+                "RUN_2026_05_01_B934_P0021"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0020",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0003",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0003_mode_2.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0022",
+                "RUN_2026_05_01_B934_P0023",
+                "RUN_2026_05_01_B934_P0024",
+                "RUN_2026_05_01_B934_P0025",
+                "RUN_2026_05_01_B934_P0026",
+                "RUN_2026_05_01_B934_P0027",
+                "RUN_2026_05_01_B934_P0028",
+                "RUN_2026_05_01_B934_P0029",
+                "RUN_2026_05_01_B934_P0030",
+                "RUN_2026_05_01_B934_P0031",
+                "RUN_2026_05_01_B934_P0032",
+                "RUN_2026_05_01_B934_P0033",
+                "RUN_2026_05_01_B934_P0034",
+                "RUN_2026_05_01_B934_P0035",
+                "RUN_2026_05_01_B934_P0036",
+                "RUN_2026_05_01_B934_P0037",
+                "RUN_2026_05_01_B934_P0038",
+                "RUN_2026_05_01_B934_P0039",
+                "RUN_2026_05_01_B934_P0040"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0022",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0004",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0004_mode_1.pdf"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0041",
+                "RUN_2026_05_01_B934_P0042",
+                "RUN_2026_05_01_B934_P0043"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0041",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0005",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0005_unknown.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0044",
+                "RUN_2026_05_01_B934_P0045",
+                "RUN_2026_05_01_B934_P0046",
+                "RUN_2026_05_01_B934_P0047",
+                "RUN_2026_05_01_B934_P0048",
+                "RUN_2026_05_01_B934_P0049"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0044",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0006",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0006_mode_1.pdf"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0050",
+                "RUN_2026_05_01_B934_P0051",
+                "RUN_2026_05_01_B934_P0052",
+                "RUN_2026_05_01_B934_P0053"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0050",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0007",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0007_unknown.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0054",
+                "RUN_2026_05_01_B934_P0055",
+                "RUN_2026_05_01_B934_P0056",
+                "RUN_2026_05_01_B934_P0057",
+                "RUN_2026_05_01_B934_P0058"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0054",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0008",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0008_mode_1.pdf"
+        },
+        {
+            "type": "mode_2",
+            "pages": [
+                "RUN_2026_05_01_B934_P0059",
+                "RUN_2026_05_01_B934_P0060"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0059",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0009",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0009_mode_2.pdf"
+        },
+        {
+            "type": "mode_1",
+            "pages": [
+                "RUN_2026_05_01_B934_P0061"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0061",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0010",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0010_mode_1.pdf"
+        },
+        {
+            "type": "unknown",
+            "pages": [
+                "RUN_2026_05_01_B934_P0062",
+                "RUN_2026_05_01_B934_P0063",
+                "RUN_2026_05_01_B934_P0064",
+                "RUN_2026_05_01_B934_P0065",
+                "RUN_2026_05_01_B934_P0066",
+                "RUN_2026_05_01_B934_P0067",
+                "RUN_2026_05_01_B934_P0068"
+            ],
+            "start_page": "RUN_2026_05_01_B934_P0062",
+            "boundary_reason": "BOUNDARY_TYPE_CHANGE",
+            "segment_id": "RUN_2026_05_01_B934_SEG_0011",
+            "path": "work\\runs\\RUN_2026_05_01_B934\\segments\\RUN_2026_05_01_B934_SEG_0011_unknown.pdf"
+        }
+    ],
+    "segment_ids": [
+        "RUN_2026_05_01_B934_SEG_0000",
+        "RUN_2026_05_01_B934_SEG_0001",
+        "RUN_2026_05_01_B934_SEG_0002",
+        "RUN_2026_05_01_B934_SEG_0003",
+        "RUN_2026_05_01_B934_SEG_0004",
+        "RUN_2026_05_01_B934_SEG_0005",
+        "RUN_2026_05_01_B934_SEG_0006",
+        "RUN_2026_05_01_B934_SEG_0007",
+        "RUN_2026_05_01_B934_SEG_0008",
+        "RUN_2026_05_01_B934_SEG_0009",
+        "RUN_2026_05_01_B934_SEG_0010",
+        "RUN_2026_05_01_B934_SEG_0011"
+    ]
+}

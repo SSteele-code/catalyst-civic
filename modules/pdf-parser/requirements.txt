@@ -1,0 +1,6 @@
+PyMuPDF>=1.24,<2.0
+opencv-python>=4.10,<5.0
+pytesseract>=0.3.10,<0.4
+Pillow>=10.0,<12.0
+psutil>=5.9,<7.0
+numpy>=1.26,<3.0

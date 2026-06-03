@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# PDF Parser runtime folders (recreated on run)
+modules/pdf-parser/inbox/
+modules/pdf-parser/outbox/
+modules/pdf-parser/work/
+modules/pdf-parser/manifests/
+modules/pdf-parser/logs/
+modules/pdf-parser/quarantine/
+modules/pdf-parser/lab/
+
+# Auditory Engine workspace
+modules/auditory-engine/_workspace/
+
+# Local data stores (never committed)
+_Sources/
+_output/
+_staging/

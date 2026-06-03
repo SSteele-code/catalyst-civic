@@ -1,0 +1,7 @@
+# Top-level dependencies for the Mode 1 Agenda pipeline.
+# Install from this file at the project root.
+
+-r PDF_Parser_Engine/requirements.txt
+
+# Database client used by conductor/migrator/registry/tools
+psycopg2-binary>=2.9,<3.0
