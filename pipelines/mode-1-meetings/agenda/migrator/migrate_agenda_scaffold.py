@@ -12,7 +12,7 @@ PG_PORT = os.getenv("PG_PORT", "5432")
 PG_DB = os.getenv("PG_DB", "catalyst_civic")
 PG_USER = os.getenv("PG_USER", "postgres")
 PG_PASS = os.getenv("PG_PASS", "postgres")
-OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
+OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
 
 
 def pulse_id_from_meeting_id(meeting_id):

@@ -50,7 +50,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 
-DEPARTMENT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports")
+DEPARTMENT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "DepartmentReports"
 OUTPUT_ROOT = DEPARTMENT_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"
 

@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Department Reports Pull: External Integrity Audit
@@ -15,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-DEPARTMENT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports")
+DEPARTMENT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "DepartmentReports"
 STAGING_ROOT = DEPARTMENT_ROOT / "_staging"
 
 EXCLUDED_HEADING_RE = re.compile(

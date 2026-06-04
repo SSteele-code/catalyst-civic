@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Public Hearing PARSE (Agenda-Staging Lane)
@@ -26,7 +27,7 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 
-PUBLIC_HEARING_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Public_Hearings")
+PUBLIC_HEARING_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Public_Hearings"
 STAGING_ROOT = PUBLIC_HEARING_ROOT / "_staging"
 OUTPUT_ROOT = PUBLIC_HEARING_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

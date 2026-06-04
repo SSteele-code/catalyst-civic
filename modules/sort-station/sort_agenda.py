@@ -1,3 +1,4 @@
+import os
 from __future__ import annotations
 
 import argparse
@@ -7,8 +8,8 @@ import shutil
 from pathlib import Path
 
 
-DEFAULT_PARSER_OUTBOX = Path(r"C:\Users\simon\CatalystCivic\_Modules\PDF Parser\outbox")
-DEFAULT_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Modes\M1\Agenda")
+DEFAULT_PARSER_OUTBOX = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modules" / "PDF Parser" / "outbox"
+DEFAULT_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modes" / "M1" / "Agenda"
 MACHINE_CODE_PATTERN = re.compile(r"^M\d+\.[A-Z0-9]{2,6}\.\d{6}\.\d{8}\.\d{8}$", re.IGNORECASE)
 
 

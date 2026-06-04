@@ -1,3 +1,4 @@
+import os
 from __future__ import annotations
 
 import argparse
@@ -138,7 +139,7 @@ def main() -> None:
     parser.add_argument("run_id", help="Run ID to audit, e.g. RUN_2026_04_10_85F4")
     parser.add_argument(
         "--base-dir",
-        default=r"C:\Users\simon\CatalystCivic\_Modules\PDF Parser",
+        default=str(Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modules" / "PDF Parser"),
         help="Machine root directory",
     )
     args = parser.parse_args()

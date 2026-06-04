@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Public Hearing Pull (Agenda Output Pass)
@@ -23,8 +24,8 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 
-AGENDA_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-PUBLIC_HEARING_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Public_Hearings")
+AGENDA_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+PUBLIC_HEARING_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Public_Hearings"
 SOURCE_ROOT = PUBLIC_HEARING_ROOT / "_sources"
 STAGING_ROOT = PUBLIC_HEARING_ROOT / "_staging"
 STATE_FILE = PUBLIC_HEARING_ROOT / "public_hearing_output_pull_state.json"

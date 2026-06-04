@@ -1,3 +1,4 @@
+import os
 import argparse
 import hashlib
 import json
@@ -12,7 +13,7 @@ from pathlib import Path
 # Mission: Final structural validation, integrity gating, glossary candidate emission,
 # and delivery to _output.
 
-OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_output")
+OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_output"
 TRANSCRIPTS_ROOT = OUTPUT_ROOT.parent
 GLOSSARY_OUTPUT_ROOT = OUTPUT_ROOT / "_glossary"
 GLOSSARY_MANIFEST_FILE = TRANSCRIPTS_ROOT / "M1_TS_GLOSSARY_HOVER_MANIFEST.jsonl"

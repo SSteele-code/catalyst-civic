@@ -49,7 +49,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 
-PUBLIC_HEARING_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Public_Hearings")
+PUBLIC_HEARING_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Public_Hearings"
 OUTPUT_ROOT = PUBLIC_HEARING_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"
 

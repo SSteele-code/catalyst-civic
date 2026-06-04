@@ -1,3 +1,4 @@
+import os
 import argparse
 import json
 import re
@@ -11,9 +12,9 @@ from pathlib import Path
 # PRATTLE Production Line
 # Mission: Orchestrate FIFO Batch Processing (Pull -> Process -> Verify -> Log)
 
-TRANSCRIPT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\TRANSCRIPT")
-VAULT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_Vualt\YTT")
-OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_output")
+TRANSCRIPT_ROOT = Path(__file__).resolve().parent
+VAULT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Vualt" / "YTT"
+OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_output"
 LEDGER_FILE = TRANSCRIPT_ROOT / "PRODUCTION_LEDGER.jsonl"
 
 MIN_SQUEEZED_COVERAGE_RATIO = 0.95

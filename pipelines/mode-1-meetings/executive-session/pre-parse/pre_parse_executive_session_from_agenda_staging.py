@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Executive Session PRE_PARSE (Agenda-Staging Lane)
@@ -27,7 +28,7 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 
-EXECUTIVE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session")
+EXECUTIVE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Executive_Session"
 STAGING_ROOT = EXECUTIVE_ROOT / "_staging"
 OUTPUT_ROOT = EXECUTIVE_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

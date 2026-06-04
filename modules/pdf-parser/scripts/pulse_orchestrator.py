@@ -25,7 +25,7 @@ if str(BASE_DIR) not in sys.path:
     sys.path.append(str(BASE_DIR))
 
 INBOX = BASE_DIR / "inbox"
-OUTBOX = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
+OUTBOX = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
 WORK_DIR = BASE_DIR / "work" / "runs"
 MANIFEST_DIR = BASE_DIR / "manifests" / "runs"
 LOG_DIR = BASE_DIR / "logs"

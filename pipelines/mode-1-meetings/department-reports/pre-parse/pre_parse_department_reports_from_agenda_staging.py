@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Department Reports PRE_PARSE (Agenda-Staging Lane)
@@ -27,7 +28,7 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 
-DEPARTMENT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports")
+DEPARTMENT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "DepartmentReports"
 STAGING_ROOT = DEPARTMENT_ROOT / "_staging"
 OUTPUT_ROOT = DEPARTMENT_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

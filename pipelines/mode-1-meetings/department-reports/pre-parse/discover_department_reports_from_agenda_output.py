@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Department Reports discovery pass for M1 agenda outputs.
@@ -19,8 +20,8 @@ from pathlib import Path
 from typing import Any
 
 
-AGENDAS_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-DEPARTMENT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports")
+AGENDAS_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+DEPARTMENT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "DepartmentReports"
 RUNS_ROOT = DEPARTMENT_ROOT / "_output" / "_runs"
 
 TOP_LEVEL_MANIFEST = DEPARTMENT_ROOT / "M1_DEPARTMENT_REPORTS_DISCOVERY_MANIFEST.jsonl"

@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 
-SOURCE_DIR = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas")
+SOURCE_DIR = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas"
 MANIFEST_PATH = SOURCE_DIR / "M1_AGENDAS_MANIFEST.jsonl"
 
 def get_hash(file_path):

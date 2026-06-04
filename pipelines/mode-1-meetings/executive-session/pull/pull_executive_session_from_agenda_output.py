@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Executive Session Pull (Agenda Output Pass)
@@ -23,8 +24,8 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 
-AGENDA_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-EXECUTIVE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session")
+AGENDA_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+EXECUTIVE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Executive_Session"
 SOURCE_ROOT = EXECUTIVE_ROOT / "_sources"
 STAGING_ROOT = EXECUTIVE_ROOT / "_staging"
 

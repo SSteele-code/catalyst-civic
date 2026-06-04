@@ -16,8 +16,8 @@ from faster_whisper import WhisperModel
 
 DISTILLERY_ROOT = Path(__file__).parent
 WORKSPACE_DIR = DISTILLERY_ROOT / "_workspace"
-VAULT_DIR = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_Vualt\YTT")
-SOURCE_DIR = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_Auditory\_source")
+VAULT_DIR = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Vualt" / "YTT"
+SOURCE_DIR = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Auditory" / "_source"
 
 CHUNK_TIME_SEC = 300
 

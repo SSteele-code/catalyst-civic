@@ -1,3 +1,4 @@
+import os
 from __future__ import annotations
 
 import argparse
@@ -8,8 +9,8 @@ from datetime import datetime
 from pathlib import Path
 
 
-DEFAULT_SOURCE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Modes\M1\Agenda")
-DEFAULT_SCHEMA_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Schema\M1\Agenda")
+DEFAULT_SOURCE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modes" / "M1" / "Agenda"
+DEFAULT_SCHEMA_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Schema" / "M1" / "Agenda"
 
 SOURCE_MACHINE_CODE_RE = re.compile(r"^M\d+\.AG\.(\d{6})\.(\d{8})\.(\d{8})$", re.IGNORECASE)
 ROMAN_SECTION_RE = re.compile(r"^\s*(\(?)\b(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\b([\.\)\s]+)(.*)$", re.IGNORECASE)

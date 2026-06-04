@@ -1,3 +1,4 @@
+import os
 import argparse
 import json
 import subprocess
@@ -12,9 +13,9 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 # Mission: Orchestrate the 5 stages of PRATTLE and manage the industrial directories.
 # OPTIMIZED: Supports Parallel Batch Processing and Incremental Sync.
 
-VAULT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_Vualt\YTT")
-STAGING_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_staging")
-OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts\_output")
+VAULT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Vualt" / "YTT"
+STAGING_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_staging"
+OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_output"
 TRANSCRIPTS_ROOT = OUTPUT_ROOT.parent
 DISPOSITION_LOG_FILE = TRANSCRIPTS_ROOT / "M1_TS_DISPOSITION_LOG.jsonl"
 DISPOSITION_STATE_FILE = TRANSCRIPTS_ROOT / "transcript_disposition_state.json"

@@ -19,10 +19,10 @@ PG_PASS = os.getenv("PG_PASS", "postgres")
 
 # Paths (Relative to the script location)
 BASE_DIR = Path(__file__).resolve().parent
-PULL_DIR = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas")
+PULL_DIR = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas"
 VAULT_ROOT = PULL_DIR / "_output"
-MODES_DIR = Path("C:/Users/simon/CatalystCivic/_Modes/M1/Agenda")
-PYTHON_EXE = r"C:\Users\simon\AppData\Local\Programs\Python\Python312\python.exe"
+MODES_DIR = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modes" / "M1" / "Agenda"
+PYTHON_EXE = sys.executable
 PULSE_COUNTER_FILE = BASE_DIR / "pulse_counter.json"
 
 # Sub-scripts (State Machine Workers)

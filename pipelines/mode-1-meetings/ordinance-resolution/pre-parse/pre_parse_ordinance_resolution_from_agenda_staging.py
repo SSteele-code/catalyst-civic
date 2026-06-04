@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Ordinance/Resolution PRE_PARSE (Agenda-Staging Lane)
@@ -26,7 +27,7 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 
-OR_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Ordinance_Resolution")
+OR_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Ordinance_Resolution"
 STAGING_ROOT = OR_ROOT / "_staging"
 OUTPUT_ROOT = OR_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

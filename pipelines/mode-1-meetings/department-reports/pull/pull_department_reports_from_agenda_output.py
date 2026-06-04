@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Department Reports Pull (Agenda Output Pass)
@@ -25,8 +26,8 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 
-AGENDA_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-DEPARTMENT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports")
+AGENDA_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+DEPARTMENT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "DepartmentReports"
 SOURCE_ROOT = DEPARTMENT_ROOT / "_sources"
 STAGING_ROOT = DEPARTMENT_ROOT / "_staging"
 

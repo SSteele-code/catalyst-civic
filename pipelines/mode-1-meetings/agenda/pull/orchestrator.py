@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Richlands Agenda Pull Orchestrator
@@ -27,7 +28,7 @@ from fetch_agenda import fetch_pdf
 from parse_links import fetch_year_links
 
 
-TARGET_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas")
+TARGET_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas"
 STATE_FILE = TARGET_ROOT / "agenda_state.json"
 MANIFEST_FILE = TARGET_ROOT / "M1_AGENDAS_MANIFEST.jsonl"
 

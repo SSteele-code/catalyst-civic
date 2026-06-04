@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Minutes Pull (Approved Website Source Pass)
@@ -30,7 +31,7 @@ from urllib.request import Request, urlopen
 
 MINUTES_INDEX_URL = "https://www.town.richlands.va.us/minutes/minutes.html"
 
-MINUTES_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Minutes")
+MINUTES_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Minutes"
 APPROVED_ROOT = MINUTES_ROOT / "_vaulted"
 STAGING_ROOT = MINUTES_ROOT / "_staging"
 RUNS_ROOT = APPROVED_ROOT / "_runs"

@@ -53,7 +53,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 
-EXECUTIVE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session")
+EXECUTIVE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Executive_Session"
 OUTPUT_ROOT = EXECUTIVE_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"
 

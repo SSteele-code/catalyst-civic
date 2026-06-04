@@ -25,8 +25,8 @@ from Registry_Loader.registry_loader import (
     parse_entities,
 )
 
-OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-MODE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Modes\M1\Agenda")
+OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+MODE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modes" / "M1" / "Agenda"
 REPORTS_DIR = BASE_DIR / "tools" / "reports"
 
 

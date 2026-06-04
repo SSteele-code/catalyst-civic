@@ -49,7 +49,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 
-TRANSCRIPTS_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Transcripts")
+TRANSCRIPTS_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts"
 OUTPUT_ROOT = TRANSCRIPTS_ROOT / "_output"
 GLOSSARY_ROOT = OUTPUT_ROOT / "_glossary"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

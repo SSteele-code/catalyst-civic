@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Minutes Pull (Outputs Pass)
@@ -22,8 +23,8 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 
-AGENDA_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-MINUTES_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Minutes")
+AGENDA_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+MINUTES_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Minutes"
 STAGING_ROOT = MINUTES_ROOT / "_staging"
 STATE_FILE = MINUTES_ROOT / "minutes_output_pull_state.json"
 MANIFEST_FILE = MINUTES_ROOT / "M1_MINUTES_OUTPUT_PULL_MANIFEST.jsonl"

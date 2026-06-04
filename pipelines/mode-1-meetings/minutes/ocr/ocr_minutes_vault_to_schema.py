@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Sequence
 
 
-MINUTES_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Minutes")
+MINUTES_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Minutes"
 VAULT_ROOT = MINUTES_ROOT / "_vaulted"
 OUTPUT_ROOT = MINUTES_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"

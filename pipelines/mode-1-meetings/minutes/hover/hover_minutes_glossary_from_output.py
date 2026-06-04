@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Minutes HOVER (Glossary Candidate Lane)
@@ -21,7 +22,7 @@ from pathlib import Path
 from typing import Any, Sequence
 
 
-MINUTES_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Minutes")
+MINUTES_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Minutes"
 OUTPUT_ROOT = MINUTES_ROOT / "_output"
 RUNS_ROOT = OUTPUT_ROOT / "_runs"
 
@@ -33,7 +34,7 @@ SCHEMA_VERSION = "m1.minutes.glossary_hover.v1"
 SOURCE_LANE = "minutes_output_glossary_hover"
 JURISDICTION = "Richlands"
 
-CCO_ROOT = Path(r"C:\Users\simon\CatalystCivic\_CCO")
+CCO_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_CCO"
 CCO_GLOSSARY_FILE = CCO_ROOT / "CORE" / "CCO_ONTOLOGY_EXTRACT.json"
 CCO_ROSTER_FILE = (
     CCO_ROOT

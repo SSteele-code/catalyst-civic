@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Ordinance/Resolution Pull (Agenda Output Pass)
@@ -23,8 +24,8 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 
-AGENDA_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-OR_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Ordinance_Resolution")
+AGENDA_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+OR_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Ordinance_Resolution"
 SOURCE_ROOT = OR_ROOT / "_sources"
 STAGING_ROOT = OR_ROOT / "_staging"
 

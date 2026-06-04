@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python
 """
 Executive Session discovery pass for M1 agenda output packets.
@@ -19,8 +20,8 @@ from pathlib import Path
 from typing import Any
 
 
-AGENDAS_OUTPUT_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output")
-EXECUTIVE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session")
+AGENDAS_OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas" / "_output"
+EXECUTIVE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Executive_Session"
 RUNS_ROOT = EXECUTIVE_ROOT / "_output" / "_runs"
 
 TOP_LEVEL_MANIFEST = EXECUTIVE_ROOT / "M1_EXECUTIVE_SESSION_DISCOVERY_MANIFEST.jsonl"

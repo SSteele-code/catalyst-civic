@@ -19,16 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PULL_DIR = BASE_DIR / "PULL"
 PULLER = PULL_DIR / "orchestrator.py"
 CONDUCTOR = BASE_DIR / "conductor.py"
-PYTHON_EXE = Path(r"C:\Users\simon\AppData\Local\Programs\Python\Python312\python.exe")
+PYTHON_EXE = sys.executable
 PULSE_COUNTER_FILE = BASE_DIR / "pulse_counter.json"
 
-AGENDAS_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas")
+AGENDAS_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Agendas"
 OUTPUT_ROOT = AGENDAS_ROOT / "_output"
 VAULT_ROOT = AGENDAS_ROOT / "_vaulted"
 PULLER_STATE_FILE = AGENDAS_ROOT / "agenda_state.json"
 PULLER_MANIFEST_FILE = AGENDAS_ROOT / "M1_AGENDAS_MANIFEST.jsonl"
-MODE_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Modes\M1\Agenda")
-SCHEMA_ROOT = Path(r"C:\Users\simon\CatalystCivic\_Schema\M1\Agenda")
+MODE_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Modes" / "M1" / "Agenda"
+SCHEMA_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Schema" / "M1" / "Agenda"
 
 ENGINE_ROOT = BASE_DIR / "PDF_Parser_Engine"
 RUNTIME_CLEAN_TARGETS = [
@@ -174,7 +174,7 @@ def sha256_file(path: Path) -> str:
 
 def ensure_within_catalyst(path: Path) -> None:
     resolved = path.resolve()
-    if not str(resolved).startswith(r"C:\Users\simon\CatalystCivic"):
+    if not str(resolved).startswith(str(Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")))):
         raise RuntimeError(f"Refusing operation outside CatalystCivic: {resolved}")
 
 
