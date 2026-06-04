@@ -8,7 +8,7 @@ import threading
 import time
 import traceback
 import uuid
-import random
+import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from http import HTTPStatus
@@ -76,21 +76,6 @@ class JobDescriptor:
     source_alias_name: str | None
 
 
-def _debug_log(base_dir: Path, run_id: str, hypothesis_id: str, location: str, message: str, data: dict) -> None:
-    payload = {
-        "sessionId": "728be7",
-        "runId": run_id,
-        "hypothesisId": hypothesis_id,
-        "location": location,
-        "message": message,
-        "data": data,
-        "timestamp": int(time.time() * 1000),
-        "id": f"log_{int(time.time() * 1000)}_{random.randint(1000, 9999)}",
-    }
-    with (base_dir / "debug-728be7.log").open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(payload, ensure_ascii=True) + "\n")
-
-
 def generate_run_id() -> str:
     now = datetime.datetime.now()
     run_id = f"RUN_{now.strftime('%Y_%m_%d')}_{uuid.uuid4().hex[:4].upper()}"
@@ -140,19 +125,11 @@ def load_job_descriptor(job_folder_raw: str) -> JobDescriptor:
     )
 
 
+# Resident service: boots once, accepts folder-drop jobs via HTTP POST /handshake/start,
+# and runs each through the 10-state processing pipeline in a background thread pool.
 class DropHandshakeService:
     def __init__(self, base_dir: Path | None = None):
         self.base_dir = Path(base_dir or BASE_DIR)
-        # region agent log
-        _debug_log(
-            self.base_dir,
-            "bootstrap",
-            "H8",
-            "src/state_machine/service.py:143",
-            "DropHandshakeService initialized",
-            {"base_dir": str(self.base_dir)},
-        )
-        # endregion
         self.thresholds = load_thresholds(self.base_dir)
         self.service_settings = get_service_settings(self.thresholds)
         self.run_manifest_handler = ManifestHandler(self.base_dir / "manifests" / "runs")
@@ -200,21 +177,6 @@ class DropHandshakeService:
 
         descriptor = load_job_descriptor(str(job_folder))
         run_id = generate_run_id()
-        # region agent log
-        _debug_log(
-            self.base_dir,
-            run_id,
-            "H1",
-            "src/state_machine/service.py:190",
-            "Handshake accepted with descriptor",
-            {
-                "job_folder": str(descriptor.job_folder),
-                "source_file": descriptor.source_file,
-                "source_exists": descriptor.source_path.exists(),
-                "profile": descriptor.profile,
-            },
-        )
-        # endregion
         with self._lock:
             self._jobs[run_id] = {
                 "run_id": run_id,
@@ -258,28 +220,12 @@ class DropHandshakeService:
         shutil.copy2(descriptor.source_path, copied_input_path)
         validate_pdf(copied_input_path)
 
-        import hashlib
-
         sha256_hash = hashlib.sha256()
         with open(descriptor.source_path, "rb") as f:
             for chunk in iter(lambda: f.read(4096), b""):
                 sha256_hash.update(chunk)
         source_hash = sha256_hash.hexdigest()
         document_machine_code = f"DOC_{source_hash[:16].upper()}"
-        # region agent log
-        _debug_log(
-            self.base_dir,
-            run_id,
-            "H2",
-            "src/state_machine/service.py:246",
-            "Run manifest inputs prepared",
-            {
-                "copied_input_path_exists": copied_input_path.exists(),
-                "source_hash_prefix": source_hash[:12],
-                "document_machine_code": document_machine_code,
-            },
-        )
-        # endregion
         source_display_name = descriptor.source_original_name
         if not source_display_name and descriptor.source_alias_name:
             source_display_name = descriptor.source_alias_name
@@ -393,21 +339,6 @@ class DropHandshakeService:
         finally:
             completed_at = datetime.datetime.now()
             duration_seconds = time.perf_counter() - started_perf
-            # region agent log
-            _debug_log(
-                self.base_dir,
-                run_id,
-                "H3",
-                "src/state_machine/service.py:364",
-                "Worker completed",
-                {
-                    "worker_name": worker_name,
-                    "status": status,
-                    "duration_seconds": round(duration_seconds, 3),
-                    "error_message": error_message,
-                },
-            )
-            # endregion
             self._append_worker_timing(
                 run_id,
                 worker_name,
@@ -526,44 +457,18 @@ class DropHandshakeService:
             self._append_state_history(run_id, RUN_STATE_HANDOFF_READY, "handoff payload written")
             self._append_state_history(run_id, RUN_STATE_COMPLETED, "run completed")
             self.run_manifest_handler.update(run_id, {"handoff_payload": handoff_payload, "status": RUN_STATE_COMPLETED})
-            # region agent log
-            _debug_log(
-                self.base_dir,
-                run_id,
-                "H4",
-                "src/state_machine/service.py:484",
-                "Run reached completed state",
-                {
-                    "status": RUN_STATE_COMPLETED,
-                    "handoff_payload_keys": sorted(list(handoff_payload.keys())) if isinstance(handoff_payload, dict) else [],
-                },
-            )
-            # endregion
             with self._lock:
                 self._jobs[run_id]["status"] = "completed"
                 self._jobs[run_id]["handoff_payload"] = handoff_payload
         except Exception as exc:
             reason = f"{exc}\n{traceback.format_exc()}"
-            # region agent log
-            _debug_log(
-                self.base_dir,
-                run_id,
-                "H5",
-                "src/state_machine/service.py:502",
-                "Run failed in processing",
-                {
-                    "error": str(exc),
-                    "exception_type": type(exc).__name__,
-                },
-            )
-            # endregion
             self.logger.error("RUN_FAILED", "FAILURE", run_id=run_id, message=str(exc))
             manifest_path = self.base_dir / "manifests" / "runs" / f"{run_id}.json"
             if manifest_path.exists():
                 try:
                     self._append_state_history(run_id, RUN_STATE_FAILED, str(exc))
-                except Exception:
-                    pass
+                except Exception as hist_exc:
+                    self.logger.error("STATE_HISTORY_APPEND_FAILED", "FAILURE", run_id=run_id, message=str(hist_exc))
                 self._quarantine_run(run_id, reason)
             with self._lock:
                 self._jobs[run_id]["status"] = "failed"
@@ -622,16 +527,6 @@ def create_http_handler(service: DropHandshakeService):
                 return
             try:
                 payload = self._read_json()
-                # region agent log
-                _debug_log(
-                    service.base_dir,
-                    "http",
-                    "H9",
-                    "src/state_machine/service.py:568",
-                    "HTTP handshake endpoint called",
-                    {"path": self.path, "payload_keys": sorted(payload.keys()) if isinstance(payload, dict) else []},
-                )
-                # endregion
                 response = service.submit_handshake(payload)
                 self._send_json(response, status=HTTPStatus.ACCEPTED)
             except Exception as exc:

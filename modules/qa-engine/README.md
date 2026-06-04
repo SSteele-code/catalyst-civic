@@ -33,8 +33,7 @@ Endpoints:
 Start service:
 
 ```powershell
-& 'C:\Users\simon\AppData\Local\Programs\Python\Python312\python.exe' `
-  'C:\Users\simon\CatalystCivic\_Modules\QA\scripts\run_qa_service.py'
+python modules/qa-engine/scripts/run_qa_service.py
 ```
 
 ## Handshake Input
@@ -45,7 +44,7 @@ Minimum payload when `job_folder` is already the parser outbox run folder:
 
 ```json
 {
-  "job_folder": "C:\\Users\\simon\\CatalystCivic\\_Modules\\PDF Parser\\outbox\\RUN_2026_04_11_1542_source"
+  "job_folder": "<absolute path to parser outbox run folder>"
 }
 ```
 
@@ -53,9 +52,9 @@ Optional `qa_job.json` inside the job folder:
 
 ```json
 {
-  "parser_output_folder": "C:\\Users\\simon\\CatalystCivic\\_Modules\\PDF Parser\\outbox\\RUN_2026_04_11_1542_source",
-  "parser_root": "C:\\Users\\simon\\CatalystCivic\\_Modules\\PDF Parser",
-  "source_pdf_path": "C:\\Users\\simon\\CatalystCivic\\_Modules\\PDF Parser\\ORIGINAL_SOURCE.pdf"
+  "parser_output_folder": "<path to parser outbox run folder>",
+  "parser_root": "<path to modules/pdf-parser>",
+  "source_pdf_path": "<path to original source PDF>"
 }
 ```
 
@@ -66,7 +65,7 @@ Invoke-RestMethod `
   -Method Post `
   -Uri 'http://127.0.0.1:8093/handshake/start' `
   -ContentType 'application/json' `
-  -Body '{"job_folder":"C:\\Users\\simon\\CatalystCivic\\_Modules\\PDF Parser\\outbox\\RUN_2026_04_11_1542_source"}'
+  -Body '{"job_folder":"<absolute path to parser outbox run folder>"}'
 ```
 
 ## QA Behavior

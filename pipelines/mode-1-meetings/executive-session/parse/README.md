@@ -10,9 +10,9 @@ The canonical parser emits `executive_session_sections` and a `glossary` section
 ## Run
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PARSE\parse_executive_session_from_agenda_staging.py --dry-run
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PARSE\parse_executive_session_from_agenda_staging.py --dry-run
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PARSE\parse_executive_session_from_agenda_staging.py --force
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PARSE\parse_executive_session_from_agenda_staging.py --force
 ```

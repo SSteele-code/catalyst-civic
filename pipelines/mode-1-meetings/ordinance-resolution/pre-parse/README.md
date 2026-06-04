@@ -2,11 +2,11 @@
 
 Reads metadata-only staging artifacts from:
 
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Ordinance_Resolution\_staging\RUN_*`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Ordinance_Resolution\_staging\RUN_*`
 
 Writes normalized parse records to:
 
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Ordinance_Resolution\_output\<M1.AG.OR...>\`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Ordinance_Resolution\_output\<M1.AG.OR...>\`
 
 Each parse payload includes:
 
@@ -19,10 +19,10 @@ This stage performs no DB writes.
 ## Run
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\Ordinance_Resolution\PRE_PARSE\pre_parse_ordinance_resolution_from_agenda_staging.py --dry-run
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\Ordinance_Resolution\PRE_PARSE\pre_parse_ordinance_resolution_from_agenda_staging.py --dry-run
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\Ordinance_Resolution\PRE_PARSE\pre_parse_ordinance_resolution_from_agenda_staging.py --force
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\Ordinance_Resolution\PRE_PARSE\pre_parse_ordinance_resolution_from_agenda_staging.py --force
 ```
 

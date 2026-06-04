@@ -20,9 +20,9 @@ MAX_EVIDENCE_LEN = int(os.getenv("M1_GLOSSARY_MAX_EVIDENCE", "160"))
 MAX_FACT_CONTEXT_LEN = int(os.getenv("M1_GLOSSARY_MAX_FACT_CONTEXT", "120"))
 
 # Paths for Reference
-REPO_ROOT = Path(__file__).resolve().parents[6]
+DATA_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic"))
 BASE_DIR = Path(__file__).resolve().parent.parent
-GOLDEN_ONTOLOGY_PATH = REPO_ROOT / "_CCO" / "CORE" / "CCO_ONTOLOGY_EXTRACT.json"
+GOLDEN_ONTOLOGY_PATH = DATA_ROOT / "_CCO" / "CORE" / "CCO_ONTOLOGY_EXTRACT.json"
 REPORTS_DIR = BASE_DIR / "tools" / "reports"
 REJECTION_LOG = REPORTS_DIR / "glossary_rejections.jsonl"
 

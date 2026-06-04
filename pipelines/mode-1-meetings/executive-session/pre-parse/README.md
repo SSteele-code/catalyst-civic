@@ -12,18 +12,18 @@ This folder contains two PRE_PARSE-adjacent scripts:
 Identifies Executive Session sections from agenda output text.
 
 Input:
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output\<M1.AG...>\<M1.AG...>.txt`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Agendas\_output\<M1.AG...>\<M1.AG...>.txt`
 
 Writes:
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session\M1_EXECUTIVE_SESSION_DISCOVERY_MANIFEST.jsonl`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session\executive_session_discovery_summary.json`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session\_output\_runs\RUN-ES-DISCOVERY-<timestamp>\executive_session_discovery_manifest.jsonl`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Executive_Session\_output\_runs\RUN-ES-DISCOVERY-<timestamp>\executive_session_discovery_summary.json`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Executive_Session\M1_EXECUTIVE_SESSION_DISCOVERY_MANIFEST.jsonl`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Executive_Session\executive_session_discovery_summary.json`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Executive_Session\_output\_runs\RUN-ES-DISCOVERY-<timestamp>\executive_session_discovery_manifest.jsonl`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Executive_Session\_output\_runs\RUN-ES-DISCOVERY-<timestamp>\executive_session_discovery_summary.json`
 
 Run:
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\discover_executive_session_from_agenda_output.py
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\discover_executive_session_from_agenda_output.py
 ```
 
 ## PRE_PARSE Normalizer
@@ -56,13 +56,13 @@ Schema + tracking:
 Usage:
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py --source-run-id RUN_20260522T222706
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py --source-run-id RUN_20260522T222706
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py --dry-run
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\EXECUTIVE_SESSION\PRE_PARSE\pre_parse_executive_session_from_agenda_staging.py --dry-run
 ```

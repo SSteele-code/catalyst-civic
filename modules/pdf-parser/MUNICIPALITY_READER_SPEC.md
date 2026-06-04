@@ -2,7 +2,7 @@
 
 Status: Draft
 Date: 2026-04-10
-Project Root: `C:\Users\simon\CatalystCivic\_Modules\PDF Parser`
+Module: `modules/pdf-parser`
 
 ## Purpose
 

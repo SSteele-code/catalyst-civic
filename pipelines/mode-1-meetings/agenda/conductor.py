@@ -38,7 +38,8 @@ def get_pulse_batch():
         try:
             data = json.loads(PULSE_COUNTER_FILE.read_text())
             return data.get("batch", [])
-        except: pass
+        except (json.JSONDecodeError, OSError):
+            return []
     return []
 
 def add_to_batch(pulse_id):
@@ -63,7 +64,10 @@ def trigger_deep_inspection_batch(batch_list):
             
             # 1. Fetch DB Samples
             print(">>> DATABASE SAMPLES:")
-            cur.execute(f"SELECT item_label, title FROM m1_agenda.items WHERE meeting_id LIKE '{pulse_id}%' ORDER BY section_ordinal, item_ordinal LIMIT 3")
+            cur.execute(
+                "SELECT item_label, title FROM m1_agenda.items WHERE meeting_id LIKE %s ORDER BY section_ordinal, item_ordinal LIMIT 3",
+                (f"{pulse_id}%",)
+            )
             rows = cur.fetchall()
             if rows:
                 for r in rows: print(f"  [DB] {r[0] or ''} {r[1] or ''}")

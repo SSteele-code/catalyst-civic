@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import psycopg2
+from psycopg2 import sql as pg_sql
 from pathlib import Path
 
 # Database Configuration
@@ -79,10 +80,13 @@ def sculpt_schema(required_fields):
                 field_sanitized = field.lower().strip()
                 if field_sanitized not in existing_columns:
                     print(f"Sculpting: Adding column '{field_sanitized}' to {table_name}")
-                    # Flexible Default: Every new column starts as TEXT unless explicitly specified otherwise.
-                    # This allows the system to "grow" without data type errors.
+                    # New columns default to TEXT — lets the schema grow without type errors.
                     try:
-                        cur.execute(f"ALTER TABLE {table_name} ADD COLUMN {field_sanitized} TEXT;")
+                        alter = pg_sql.SQL("ALTER TABLE {table} ADD COLUMN {col} TEXT;").format(
+                            table=pg_sql.Identifier(schema_name, raw_table_name),
+                            col=pg_sql.Identifier(field_sanitized),
+                        )
+                        cur.execute(alter)
                         print(f"Success: Added '{field_sanitized}'")
                     except Exception as col_err:
                         print(f"Error adding column {field_sanitized}: {col_err}")

@@ -12,22 +12,22 @@ This folder contains two PRE_PARSE-adjacent scripts:
 Defines what counts as a Department Report from agenda output text before/alongside pull tuning.
 
 Input:
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\Agendas\_output\<M1.AG...>\<M1.AG...>.txt`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\Agendas\_output\<M1.AG...>\<M1.AG...>.txt`
 
 Writes:
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports\M1_DEPARTMENT_REPORTS_DISCOVERY_MANIFEST.jsonl`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports\department_reports_discovery_summary.json`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports\_output\_runs\RUN-DR-DISCOVERY-<timestamp>\department_reports_discovery_manifest.jsonl`
-- `C:\Users\simon\CatalystCivic\_Sources\M1-Meetings\DepartmentReports\_output\_runs\RUN-DR-DISCOVERY-<timestamp>\department_reports_discovery_summary.json`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\DepartmentReports\M1_DEPARTMENT_REPORTS_DISCOVERY_MANIFEST.jsonl`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\DepartmentReports\department_reports_discovery_summary.json`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\DepartmentReports\_output\_runs\RUN-DR-DISCOVERY-<timestamp>\department_reports_discovery_manifest.jsonl`
+- `$CC_DATA_ROOT\_Sources\M1-Meetings\DepartmentReports\_output\_runs\RUN-DR-DISCOVERY-<timestamp>\department_reports_discovery_summary.json`
 
 Run:
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\discover_department_reports_from_agenda_output.py
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\discover_department_reports_from_agenda_output.py
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\discover_department_reports_from_agenda_output.py --dry-run
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\discover_department_reports_from_agenda_output.py --dry-run
 ```
 
 ## PRE_PARSE Normalizer (Stage 2)
@@ -60,17 +60,17 @@ Schema + tracking:
 Usage:
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --dry-run
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --dry-run
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --source-run-id RUN_20260519T212719
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --source-run-id RUN_20260519T212719
 ```
 
 ```powershell
-py -3.12 C:\Users\simon\CatalystCivic\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --all-staging
+py -3.12 $CC_DATA_ROOT\_Scripts\Mode_1_MEETINGS\STATE\VA-Virginia\DEPARTMENT_REPORTS\PRE_PARSE\pre_parse_department_reports_from_agenda_staging.py --all-staging
 ```

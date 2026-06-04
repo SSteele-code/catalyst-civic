@@ -9,11 +9,10 @@ from datetime import datetime
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-# PRATTLE Conductor
-# Mission: Orchestrate the 5 stages of PRATTLE and manage the industrial directories.
-# OPTIMIZED: Supports Parallel Batch Processing and Incremental Sync.
+# PRATTLE Conductor: orchestrates the 5-stage transcript pipeline for a single VTT file.
+# Supports single-file and parallel batch modes. Incremental: skips already-processed files.
 
-VAULT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Vualt" / "YTT"
+VAULT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_Vault" / "YTT"
 STAGING_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_staging"
 OUTPUT_ROOT = Path(os.getenv("CC_DATA_ROOT", r"C:\CatalystCivic")) / "_Sources" / "M1-Meetings" / "Transcripts" / "_output"
 TRANSCRIPTS_ROOT = OUTPUT_ROOT.parent
@@ -190,46 +189,46 @@ def process_transcript(machine_code: str):
         persist_disposition(machine_code, result)
         return result
         
-    # Stage 1.5: PHONETIC TRANSLATOR
+    # Stage 2: PHONETIC CORRECTION — resolves municipal proper nouns mangled by auto-transcription
     ok, out = run_stage("phonetic_translator.py", ["--staging", str(STAGING_ROOT / machine_code)])
     if not ok:
         cleanup_staging(machine_code)
-        result = f"[FAIL] Stage 1.5 ({machine_code}): {out}"
+        result = f"[FAIL] Stage 2 PHONETIC ({machine_code}): {out}"
         persist_disposition(machine_code, result)
         return result
     if not (staging_machine_dir / "normalized.json").exists():
         cleanup_staging(machine_code)
-        result = f"[FAIL] Stage 1.5 ({machine_code}): normalized.json is missing after translation."
+        result = f"[FAIL] Stage 2 PHONETIC ({machine_code}): normalized.json is missing after translation."
         persist_disposition(machine_code, result)
         return result
         
-    # Stage 2: ROBERTS STATE
+    # Stage 3: PROCEDURAL STATE — Roberts Rules state machine segments the transcript by phase
     ok, out = run_stage("roberts_state.py", ["--staging", str(STAGING_ROOT / machine_code)])
-    if not ok:
-        cleanup_staging(machine_code)
-        result = f"[FAIL] Stage 2 ({machine_code}): {out}"
-        persist_disposition(machine_code, result)
-        return result
-    if not (staging_machine_dir / "attributed.json").exists():
-        cleanup_staging(machine_code)
-        result = f"[FAIL] Stage 2 ({machine_code}): attributed.json was not produced."
-        persist_disposition(machine_code, result)
-        return result
-        
-    # Stage 3: QUOTER
-    ok, out = run_stage("quoter.py", ["--staging", str(STAGING_ROOT / machine_code)])
     if not ok:
         cleanup_staging(machine_code)
         result = f"[FAIL] Stage 3 ({machine_code}): {out}"
         persist_disposition(machine_code, result)
         return result
-    if not (staging_machine_dir / "quoted.json").exists():
+    if not (staging_machine_dir / "attributed.json").exists():
         cleanup_staging(machine_code)
-        result = f"[FAIL] Stage 3 ({machine_code}): quoted.json was not produced."
+        result = f"[FAIL] Stage 3 ({machine_code}): attributed.json was not produced."
         persist_disposition(machine_code, result)
         return result
-        
-    # Stage 4: QA
+
+    # Stage 4: ATTRIBUTION — assigns speaker identity to each transcript turn
+    ok, out = run_stage("quoter.py", ["--staging", str(STAGING_ROOT / machine_code)])
+    if not ok:
+        cleanup_staging(machine_code)
+        result = f"[FAIL] Stage 4 ({machine_code}): {out}"
+        persist_disposition(machine_code, result)
+        return result
+    if not (staging_machine_dir / "quoted.json").exists():
+        cleanup_staging(machine_code)
+        result = f"[FAIL] Stage 4 ({machine_code}): quoted.json was not produced."
+        persist_disposition(machine_code, result)
+        return result
+
+    # Stage 5: QA — gates output at 95% quality threshold before writing final JSON
     ok, out = run_stage("qa.py", ["--staging", str(STAGING_ROOT / machine_code)])
     if not ok:
         cleanup_staging(machine_code)
