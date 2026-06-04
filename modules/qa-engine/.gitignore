@@ -1,0 +1,17 @@
+inbox/*
+outbox/*
+work/*
+manifests/*
+logs/*
+reports/*
+*.zip
+*.tmp
+*.pyc
+__pycache__/
+
+!inbox/.gitkeep
+!outbox/.gitkeep
+!work/.gitkeep
+!manifests/.gitkeep
+!logs/.gitkeep
+!reports/.gitkeep
